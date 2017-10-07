@@ -1,0 +1,29 @@
+# Newest version of Django
+django
+
+# For use of pip-compile and pip-sync
+pip-tools
+
+# Testing framework
+pytest
+
+# For pytest-django interoperability
+pytest-django
+
+# For dataporten http queries and testing
+requests
+requests-cache
+responses
+
+# Use mypy for static type linting
+mypy
+mypy_extensions
+
+# Ability to use @freeze_time in unittests
+freezegun
+
+# Object factories for testing
+factory_boy
+
+# oAuth2 framework
+django-allauth
