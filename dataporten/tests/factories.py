@@ -47,14 +47,6 @@ class UserFactory(factory.django.DjangoModelFactory):
 
 class DataportenUserFactory(factory.django.DjangoModelFactory):
     username = 'username'
-    options = factory.RelatedFactory(
-            'semesterpage.tests.factories.OptionsFactory',
-            'user',
-    )
-    contributor = factory.RelatedFactory(
-            'semesterpage.tests.factories.ContributorFactory',
-            'user',
-    )
     social_account = factory.RelatedFactory(SocialAccountFactory, 'user')
 
     class Meta:

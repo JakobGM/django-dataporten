@@ -9,7 +9,6 @@ from django.utils.functional import cached_property
 from django.utils.module_loading import import_string
 
 from allauth.socialaccount.models import SocialToken
-from defaultlist import defaultlist
 
 from .api import usergroups
 from .parsers import (

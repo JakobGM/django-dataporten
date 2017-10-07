@@ -113,3 +113,6 @@ venv.bak/
 .mypy_cache/
 
 # End of https://www.gitignore.io/api/python,django
+
+# Ignore sqlite cache database
+tmp/dataporten_cache.sqlite

@@ -1,6 +1,8 @@
 import json
 from typing import Any, Dict, List
 
+from django.contrib.auth.models import User
+
 import responses
 
 
@@ -38,3 +40,7 @@ def mock_usergroups_request() -> List[Dict[Any, Any]]:
     )
 
     return groups_dump
+
+
+def dummy_token_function(user: User) -> str:
+    return 'dummy_token'
