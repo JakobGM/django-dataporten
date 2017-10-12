@@ -32,4 +32,18 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: WSGI :: Middleware',
     ],
+    install_requires=[
+        'django<=2.0',
+        'pip-tools',
+        'pytest',
+        'pytest-django',
+        'requests',
+        'requests-cache',
+        'responses',
+        'mypy',
+        'mypy_extensions',
+        'freezegun',
+        'factory_boy',
+        'django-allauth'
+    ]
 )
