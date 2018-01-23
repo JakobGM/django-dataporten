@@ -1,6 +1,7 @@
 """ Dataporten test settings and fixtures """
 
 from django.contrib.auth.models import AnonymousUser, User
+from freezegun import freeze_time
 import pytest
 import responses
 
@@ -129,6 +130,7 @@ def finished_course():
     )
 
 
+@freeze_time('2017-01-01')
 @pytest.fixture
 def non_finished_course():
     return Course(
