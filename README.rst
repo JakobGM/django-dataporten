@@ -30,3 +30,11 @@ Quick start
         ).token
 
 .. _django-allauth: https://github.com/pennersr/django-allauth:
+
+Run tests
+_________
+
+.. code:: bash
+
+    export DJANGO_SETTINGS_MODULE=dataporten.settings
+    pytest
