@@ -7,7 +7,7 @@ Django-dataporten is a simple Django app to fetch data from dataporten and conne
 Quick start
 -----------
 
-1. Add "dataporten" to your INSTALLED_APPS setting like this::
+1. Add "dataporten" to your INSTALLED_APPS setting like this
 
 .. code:: python
 
