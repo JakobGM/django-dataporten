@@ -21,15 +21,43 @@ class TestDataportenGroupManager:
         assert 'EXPH0004' in dataporten.courses.all
         assert 'EXPH0004' not in dataporten.courses.active
 
+        # Alternative way to check membership, where active gives different
+        # results since this is
+        assert dataporten.is_member_of(
+            uid='fc:fs:fs:emne:ntnu.no:EXPH0004:1',
+            active=False,
+        )
+        assert not dataporten.is_member_of(
+            uid='fc:fs:fs:emne:ntnu.no:EXPH0004:1',
+            active=True,
+        )
+
         # End time date in future
         assert 'TMA4150' not in dataporten.courses.finished
         assert 'TMA4150' in dataporten.courses.all
         assert 'TMA4150' in dataporten.courses.active
+        assert dataporten.is_member_of(
+            uid='fc:fs:fs:emne:ntnu.no:TMA4150:1',
+            active=False,
+        )
+        assert dataporten.is_member_of(
+            uid='fc:fs:fs:emne:ntnu.no:TMA4150:1',
+            active=True,
+        )
+
 
         # No end time, implied future date
         assert 'TMA4180' not in dataporten.courses.finished
         assert 'TMA4180' in dataporten.courses.all
         assert 'TMA4180' in dataporten.courses.active
+        assert dataporten.is_member_of(
+            uid='fc:fs:fs:emne:ntnu.no:TMA4180:1',
+            active=False,
+        )
+        assert dataporten.is_member_of(
+            uid='fc:fs:fs:emne:ntnu.no:TMA4180:1',
+            active=True,
+        )
 
     def test_dataporten_study_program(self, dataporten):
         assert dataporten.\

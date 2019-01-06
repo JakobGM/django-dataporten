@@ -5,8 +5,8 @@ Django-dataporten
 Django-dataporten is a simple Django app to fetch data from dataporten and
 connect it to a user.
 
-Quick start
------------
+Setup
+-----
 
 1. Add "dataporten" to your INSTALLED_APPS setting like this
 
@@ -63,8 +63,53 @@ set in :code:`DATAPORTEN_CACHE_PATH` before starting the Django server.
     # Where to save the sqlite3 cache backend
     DATAPORTEN_CACHE_PATH = 'tmp/'
 
-
 .. _django-allauth: https://github.com/pennersr/django-allauth:
+
+
+Usage
+-----
+
+The :code:`DataportenGroupsMiddleware` adds an instance of
+:code:`DataportenGroupsManager` saved to :code:`request.user.dataporten` for
+every valid dataporten users.
+
+You can check if a group is an **active** member of a specific dataporten group
+by providing the group :code:`id` to the
+:code:`DataportenGroupsManager.is_member_of` method. For instance,
+
+.. code:: python
+
+    assert request.user.dataporten.is_member_of(
+        uid='fc:org:ntnu.no:unit:167500',
+        active=True,
+    )
+
+If :code:`active` is set to :code:`False`, the method only checks if the user
+has been a member of the group at any time, not necessarily if the user is
+an **active** member.
+
+You can also check if a user has any affiliation to a course, only given
+its course code, and not its dataporten ID,
+
+.. code:: python
+
+    # Already finished the course
+    assert 'TMA4150' in request.user.dataporten.courses.finished
+
+    # Currently enrolled in the course
+    assert 'TMA4150' in request.user.dataporten.courses.active
+
+    # Either
+    assert 'TMA4150' in request.user.dataporten.courses.all
+
+
+There is still lots of more undocumented (but well tested!) attributes of
+:code:`DataportenGroupsManager`. Take a look at :code:`dataporten/parsers.py`.
+Each parser has a class variable :code:`NAME`, and they are attached to
+the user as :code:`request.user.dataporten.NAME`.
+
+If you have a specific usecase, please open a GitHub issue, and I will
+document and/or implement it for you.
 
 Run tests
 _________

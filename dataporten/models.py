@@ -50,6 +50,27 @@ class DataportenGroupManager:
 
         self.courses = CourseManager(self.courses)  # type: ignore
 
+    def is_member_of(self, uid: str, active: bool = True) -> bool:
+        """
+        Return True if user is a member of the given group UID.
+
+        :param uid: The group uid identifying the dataporten group.
+          For example: 'fc:org:ntnu.no:unit:167500', which represents
+          Orakeltjenesten, NTNU-IT.
+        :param active: If True, an *active* membership is required. If False,
+          True is returned if the user has been a member of the group at *any*
+          point in time, and the user *might* not have active group membership
+          anymore.
+        """
+        group = self.groups.get(uid)
+
+        if not group:
+            return False
+        elif group and not active:
+            return True
+        else:
+            return bool(group.membership)
+
 
 class CourseManager:
     def __init__(self, courses: Dict[str, Course]) -> None:
