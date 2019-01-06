@@ -4,32 +4,39 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
-certifi==2017.7.27.1      # via requests
+atomicwrites==1.2.1       # via pytest
+attrs==18.2.0             # via pytest
+certifi==2018.11.29       # via requests
 chardet==3.0.4            # via requests
-click==6.7                # via pip-tools
-cookies==2.2.1            # via responses
+click==7.0                # via pip-tools
 defusedxml==0.5.0         # via python3-openid
-django-allauth==0.33.0
-django==1.11.6
-factory-boy==2.9.2
-faker==0.8.4              # via factory-boy
-first==2.0.1              # via pip-tools
-freezegun==0.3.9
-idna==2.6                 # via requests
-mypy-extensions==0.3.0
-mypy==0.530
-oauthlib==2.0.4           # via requests-oauthlib
-pip-tools==1.10.1
-py==1.4.34                # via pytest
-pytest-django==3.1.2
-pytest==3.2.3
-python-dateutil==2.6.1    # via faker, freezegun
+django-allauth==0.38.0
+django==2.1.5
+factory-boy==2.11.1
+faker==1.0.1              # via factory-boy
+filelock==3.0.10          # via tox
+freezegun==0.3.11
+idna==2.8                 # via requests
+more-itertools==5.0.0     # via pytest
+mypy-extensions==0.4.1
+mypy==0.650
+oauthlib==2.1.0           # via requests-oauthlib
+pip-tools==3.2.0
+pluggy==0.8.0             # via pytest, tox
+py==1.7.0                 # via pytest, tox
+pytest-django==3.4.4
+pytest==4.1.0
+python-dateutil==2.7.5    # via faker, freezegun
 python3-openid==3.1.0     # via django-allauth
-pytz==2017.2              # via django
+pytz==2018.7              # via django
 requests-cache==0.4.13
-requests-oauthlib==0.8.0  # via django-allauth
-requests==2.18.4
-responses==0.8.1
-six==1.11.0               # via faker, freezegun, pip-tools, python-dateutil, responses
-typed-ast==1.1.0          # via mypy
-urllib3==1.22             # via requests
+requests-oauthlib==1.0.0  # via django-allauth
+requests==2.21.0
+responses==0.10.5
+six==1.12.0               # via faker, freezegun, more-itertools, pip-tools, pytest, python-dateutil, responses, tox
+text-unidecode==1.2       # via faker
+toml==0.10.0              # via tox
+tox==3.6.1
+typed-ast==1.1.1          # via mypy
+urllib3==1.24.1           # via requests
+virtualenv==16.2.0        # via tox

@@ -2,8 +2,13 @@ import logging
 
 import requests
 import requests_cache
+
 from django.conf import settings
-from django.http import HttpRequest
+from django.http import HttpResponse, HttpRequest
+try:
+    from django.utils.deprecation import MiddlewareMixin
+except ImportError:
+    MiddlewareMixin = object
 
 from .api import usergroups
 from .models import DataportenUser
@@ -19,13 +24,7 @@ if settings.DATAPORTEN_CACHE_REQUESTS:
     )
 
 
-class DataportenGroupsMiddleware(object):
-    def __init__(self, get_response):
-        self.get_response = get_response
-
-    def __call__(self, request: HttpRequest):
-        return self.get_response(request)
-
-    def process_view(self, request: HttpRequest, *args, **kwargs):
+class DataportenGroupsMiddleware(MiddlewareMixin):
+    def process_request(self, request: HttpRequest):
         if DataportenUser.valid_request(request):
             request.user.__class__ = DataportenUser
