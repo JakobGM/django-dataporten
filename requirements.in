@@ -27,3 +27,6 @@ factory_boy
 
 # oAuth2 framework
 django-allauth
+
+# For testing application against different dependency versions
+tox
