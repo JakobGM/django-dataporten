@@ -134,7 +134,7 @@ class TestCourse:
 
     def test_ongoing_course_without_end_time(self, non_finished_course):
         assert non_finished_course.membership
-        assert non_finished_course.semester.year == 2017
+        assert non_finished_course.semester.year == 2019
 
     def test_split_on_membership(self, finished_course, non_finished_course, ongoing_course):
         courses = [
