@@ -127,6 +127,18 @@ class TestMembership():
         assert membership.json == membership_json
 
 
+    def test_string_representation_of_membership(self, membership_json):
+        """The displayName property should be used for str representation."""
+        # With a displayName attribute
+        membership = Membership(membership_json)
+        assert str(membership) == 'Ansatt'
+
+        # Without a displayName attribute
+        del membership_json['displayName']
+        membership = Membership(membership_json)
+        assert str(membership) == 'Ukjent'
+
+
 @freeze_time('2017-01-01')
 class TestCourse:
     def test_course_code(self, finished_course):

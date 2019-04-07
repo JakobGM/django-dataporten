@@ -108,6 +108,15 @@ class Membership:
         else:
             return datetime.datetime.now() < self.end_time
 
+    def __str__(self) -> str:
+        """
+        Return string representation of Membership object.
+
+        The `displayName` property is used for this purpose, and if it does
+        not exist, "Ukjent" is returned.
+        """
+        return self.json.get('displayName', 'Ukjent')
+
 
 def next_holiday() -> datetime.datetime:
     now = datetime.datetime.now()
