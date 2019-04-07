@@ -139,6 +139,17 @@ Some additional, common properties are available:
     # The displayName value is used as the membership string representation
     assert str(membership) == 'Ansatt'
 
+    # Primary affiliation to the group
+    assert membership.primary_affiliation == 'employee'
+
+    # And all affiliations to the group
+    assert membership.affiliations == [
+        'employee',
+        'member',
+        'affiliate',
+        'student',
+    ]
+
 
 Group membership checks
 ~~~~~~~~~~~~~~~~~~~~~~~

@@ -138,6 +138,17 @@ class TestMembership():
         membership = Membership(membership_json)
         assert str(membership) == 'Ukjent'
 
+    def test_primary_affiliation_property(self, membership_json):
+        """Membership affiliations should be retrievable."""
+        membership = Membership(membership_json)
+        assert membership.primary_affiliation == 'employee'
+        assert membership.affiliations == [
+            'employee',
+            'member',
+            'affiliate',
+            'student',
+        ]
+
 
 @freeze_time('2017-01-01')
 class TestCourse:

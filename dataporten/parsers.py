@@ -79,6 +79,8 @@ class Group(BaseGroup):
 class Membership:
     def __init__(self, membership: MembershipJSON) -> None:
         self.json = membership
+        self.primary_affiliation = membership.get('primaryAffiliation')
+        self.affiliations = membership.get('affiliation', [])
 
         if 'active' in membership:
             self.active = membership['active']
