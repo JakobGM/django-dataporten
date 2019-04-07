@@ -62,7 +62,7 @@ class TestGroup:
         assert group_example.membership
 
 
-class TestMembership(TestCase):
+class TestMembership():
     def test_perpetual_membership(self):
         unending_membership = Membership(
             {
@@ -74,7 +74,7 @@ class TestMembership(TestCase):
                 ]
             }
         )
-        self.assertTrue(unending_membership)
+        assert bool(unending_membership) is True
 
     def test_inactive_membership(self):
         inactive_membership = Membership(
@@ -87,7 +87,7 @@ class TestMembership(TestCase):
                 ]
             }
         )
-        self.assertFalse(inactive_membership)
+        assert bool(inactive_membership) is False
 
     @freeze_time('2017-08-13')
     def test_limited_membership(self):
@@ -103,7 +103,7 @@ class TestMembership(TestCase):
                 "displayName": "Student"
             }
         )
-        self.assertTrue(limited_membership)
+        assert bool(limited_membership) is True
 
     @freeze_time('2017-08-15')
     def test_expired_membership(self):
@@ -119,7 +119,12 @@ class TestMembership(TestCase):
                 "displayName": "Student"
             }
         )
-        self.assertFalse(limited_membership)
+        assert bool(limited_membership) is False
+
+    def test_retrieval_of_json_from_membership_object(self, membership_json):
+        """Original JSON should be stored on the membership object."""
+        membership = Membership(membership_json)
+        assert membership.json == membership_json
 
 
 @freeze_time('2017-01-01')

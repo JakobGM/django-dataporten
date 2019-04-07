@@ -196,3 +196,39 @@ def course_last_semester():
             "url": "http://wiki.math.ntnu.no/tma4145"
         }
     )
+
+
+@pytest.fixture
+def organization_json():
+    return {
+        "id": "fc:org:ntnu.no",
+        "displayName": "NORGES TEKNISK-NATURVITENSKAPELIGE UNIVERSITET NTNU",
+        "street": "N-7491",
+        "eduOrgLegalName": "NORGES TEKNISK-NATURVITENSKAPELIGE UNIVERSITET NTNU",
+        "eduOrgHomePageURI": "http://www.ntnu.no/",
+        "norEduOrgNIN": "N1111111111",
+        "facsimileTelephoneNumber": "+47 12345678",
+        "norEduOrgAcronym": "NTNU",
+        "labeledURI": "http://www.ntnu.no/",
+        "public": True,
+        "mail": "orakel@ntnu.no",
+        "orgType": ["higher_education"],
+        "membership": {
+            "title": ["fast ansatt"],
+            "affiliation": ["employee", "member", "affiliate", "student"],
+            "primaryAffiliation": "employee",
+            "basic": "admin",
+            "displayName": "Ansatt",
+        },
+        "postalAddress": "N-7491 Trondheim $ NORWAY",
+        "norEduOrgUniqueIdentifier": "194000000",
+        "postalCode": "N-7491",
+        "type": "fc:org",
+        "telephoneNumber": "+47 73595000",
+        "l": "Trondheim",
+    }
+
+
+@pytest.fixture
+def membership_json(organization_json):
+    return organization_json["membership"]

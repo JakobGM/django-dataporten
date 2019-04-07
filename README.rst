@@ -107,18 +107,35 @@ Membership objects
 ------------------
 
 All groups have an associated :code:`Membership` object which can be used for
-further querying of membership properties for that particular group
+further querying of membership properties for that particular group.
+The original membership JSON can be accessed from the :code:`Membership.json`
+attribute:
 
 .. code:: python
 
     group = request.user.dataporten.groups[uid]
     membership = group.membership
 
+    print(membership.json)
+    >>> {
+    >>>     "title": ["fast ansatt"],
+    >>>     "affiliation": ["employee", "member", "affiliate", "student"],
+    >>>     "primaryAffiliation": "employee",
+    >>>     "basic": "admin",
+    >>>     "displayName": "Ansatt",
+    >>> }
+
+
+Some additional, common properties are available:
+
+.. code:: python
+
     # Membership objects are "truthy" if they are considered active
     assert membership
 
     # Not all group memberships have a set end time
     assert isinstance(membership.end_time, [datetime.datetime, None])
+
 
 Group membership checks
 ~~~~~~~~~~~~~~~~~~~~~~~
