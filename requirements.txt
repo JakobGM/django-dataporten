@@ -11,7 +11,7 @@ chardet==3.0.4            # via requests
 click==7.0                # via pip-tools
 defusedxml==0.5.0         # via python3-openid
 django-allauth==0.38.0
-django==2.1.5
+django==2.1.11
 factory-boy==2.11.1
 faker==1.0.1              # via factory-boy
 filelock==3.0.10          # via tox
