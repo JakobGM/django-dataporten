@@ -73,7 +73,7 @@ set in :code:`DATAPORTEN_CACHE_PATH` before starting the Django server.
     # Where to save the sqlite3 cache backend
     DATAPORTEN_CACHE_PATH = 'tmp/'
 
-.. _django-allauth: https://github.com/pennersr/django-allauth:
+.. _django-allauth: https://github.com/pennersr/django-allauth
 
 
 Usage
