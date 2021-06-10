@@ -4,39 +4,102 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
-atomicwrites==1.2.1       # via pytest
-attrs==18.2.0             # via pytest
-certifi==2018.11.29       # via requests
-chardet==3.0.4            # via requests
-click==7.0                # via pip-tools
-defusedxml==0.5.0         # via python3-openid
+atomicwrites==1.2.1
+    # via pytest
+attrs==18.2.0
+    # via pytest
+certifi==2018.11.29
+    # via requests
+chardet==3.0.4
+    # via requests
+click==7.0
+    # via pip-tools
+defusedxml==0.5.0
+    # via python3-openid
 django-allauth==0.38.0
-django==2.1.5
+    # via -r requirements.in
+django==2.2.24
+    # via
+    #   -r requirements.in
+    #   django-allauth
 factory-boy==2.11.1
-faker==1.0.1              # via factory-boy
-filelock==3.0.10          # via tox
+    # via -r requirements.in
+faker==1.0.1
+    # via factory-boy
+filelock==3.0.10
+    # via tox
 freezegun==0.3.11
-idna==2.8                 # via requests
-more-itertools==5.0.0     # via pytest
+    # via -r requirements.in
+idna==2.8
+    # via requests
+more-itertools==5.0.0
+    # via pytest
 mypy-extensions==0.4.1
+    # via
+    #   -r requirements.in
+    #   mypy
 mypy==0.650
-oauthlib==2.1.0           # via requests-oauthlib
+    # via -r requirements.in
+oauthlib==2.1.0
+    # via requests-oauthlib
 pip-tools==3.2.0
-pluggy==0.8.0             # via pytest, tox
-py==1.7.0                 # via pytest, tox
+    # via -r requirements.in
+pluggy==0.8.0
+    # via
+    #   pytest
+    #   tox
+py==1.7.0
+    # via
+    #   pytest
+    #   tox
 pytest-django==3.4.4
+    # via -r requirements.in
 pytest==4.1.0
-python-dateutil==2.7.5    # via faker, freezegun
-python3-openid==3.1.0     # via django-allauth
-pytz==2018.7              # via django
+    # via
+    #   -r requirements.in
+    #   pytest-django
+python-dateutil==2.7.5
+    # via
+    #   faker
+    #   freezegun
+python3-openid==3.1.0
+    # via django-allauth
+pytz==2018.7
+    # via django
 requests-cache==0.4.13
-requests-oauthlib==1.0.0  # via django-allauth
+    # via -r requirements.in
+requests-oauthlib==1.0.0
+    # via django-allauth
 requests==2.21.0
+    # via
+    #   -r requirements.in
+    #   django-allauth
+    #   requests-cache
+    #   requests-oauthlib
+    #   responses
 responses==0.10.5
-six==1.12.0               # via faker, freezegun, more-itertools, pip-tools, pytest, python-dateutil, responses, tox
-text-unidecode==1.2       # via faker
-toml==0.10.0              # via tox
+    # via -r requirements.in
+six==1.12.0
+    # via
+    #   faker
+    #   freezegun
+    #   more-itertools
+    #   pip-tools
+    #   pytest
+    #   python-dateutil
+    #   responses
+    #   tox
+sqlparse==0.4.1
+    # via django
+text-unidecode==1.2
+    # via faker
+toml==0.10.0
+    # via tox
 tox==3.6.1
-typed-ast==1.1.1          # via mypy
-urllib3==1.24.1           # via requests
-virtualenv==16.2.0        # via tox
+    # via -r requirements.in
+typed-ast==1.1.1
+    # via mypy
+urllib3==1.24.1
+    # via requests
+virtualenv==16.2.0
+    # via tox
