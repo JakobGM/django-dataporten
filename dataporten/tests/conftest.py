@@ -19,13 +19,11 @@ def dataporten():
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def dataporten_user():
     return DataportenUserFactory()
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def user_with_dataporten_token():
     """ A User which has not been swapped out with the proxy model """
     dp_user = DataportenUserFactory()
