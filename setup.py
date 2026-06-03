@@ -46,7 +46,6 @@ setup(
         'requests-cache',
         'responses',
         'mypy',
-        'mypy_extensions',
         'freezegun',
         'factory_boy',
         'django-allauth'
