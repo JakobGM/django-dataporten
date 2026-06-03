@@ -25,6 +25,8 @@ INSTALLED_APPS = (
 
     # oAuth2 framework
     'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 )
 
 # Cache requests to the dataporten API
