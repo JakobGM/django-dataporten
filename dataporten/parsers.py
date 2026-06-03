@@ -5,10 +5,12 @@ from .api import GroupJSON, MembershipJSON
 
 
 def datetime_from(json_string: str) -> datetime.datetime:
-    return datetime.datetime.strptime(
-        json_string,
-        '%Y-%m-%dT%H:%M:%SZ',
-    )
+    """
+    Parse a datetime in string format into a offset-naive datetime object.
+    """
+    timestamp = datetime.datetime.fromisoformat(json_string)
+    # Return offset-naive timestamp to preserve backward compatibility with dataporten ≤ 0.4.0.
+    return timestamp.astimezone(datetime.UTC).replace(tzinfo=None)
 
 
 def group_type(group: GroupJSON) -> str:
