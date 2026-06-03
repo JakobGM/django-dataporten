@@ -162,7 +162,9 @@ def test_dataporten_user_validation(rf, django_user_model, dataporten_user):
     assert DataportenUser.valid_request(request) == False
 
     request.user = django_user_model()
+    request.user.save()
     assert DataportenUser.valid_request(request) == False
 
     request.user = dataporten_user
+    request.user.save()
     assert DataportenUser.valid_request(request) == True

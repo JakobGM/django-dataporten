@@ -27,6 +27,7 @@ def test_dataporten_middleware_with_plain_django_user(
     dpm = DataportenGroupsMiddleware(Mock())
 
     request.user = django_user_model()
+    request.user.save()
     dpm(request)
     assert type(request.user) is User
 
