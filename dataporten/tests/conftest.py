@@ -128,8 +128,8 @@ def finished_course():
     )
 
 
-@freeze_time('2017-01-01')
 @pytest.fixture
+@freeze_time('2017-01-01')
 def non_finished_course():
     return Course(
         {
