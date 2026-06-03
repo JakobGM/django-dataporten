@@ -29,6 +29,11 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
 )
 
+MIDDLEWARE = [
+    'allauth.account.middleware.AccountMiddleware',
+    'dataporten.middleware.DataportenGroupsMiddleware',
+]
+
 # Cache requests to the dataporten API
 DATAPORTEN_CACHE_REQUESTS = True
 
