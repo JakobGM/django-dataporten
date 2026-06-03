@@ -1,10 +1,9 @@
 """
 Tools for gathering userinfo and groups for a specific dataporten user
 """
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, TypedDict
 
 import requests
-from mypy_extensions import TypedDict
 
 
 # All the required fields of the Dataporten
