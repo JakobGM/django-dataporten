@@ -21,10 +21,8 @@ setup(
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
-        'Framework :: Django :: 4.2',
-        'Framework :: Django :: 5.0',
-        'Framework :: Django :: 5.1',
         'Framework :: Django :: 5.2',
+        'Framework :: Django :: 6.0',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
@@ -37,17 +35,21 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: WSGI :: Middleware',
     ],
+    python_requires='>=3.11',
     install_requires=[
-        'django',
-        'pip-tools',
-        'pytest',
-        'pytest-django',
+        'django>=5.2',
+        'django-allauth',
         'requests',
         'requests-cache',
-        'responses',
-        'mypy',
-        'freezegun',
-        'factory_boy',
-        'django-allauth'
-    ]
+    ],
+    extras_require={
+        'test': [
+            'factory_boy',
+            'freezegun',
+            'mypy',
+            'pytest',
+            'pytest-django',
+            'responses',
+        ],
+    },
 )
