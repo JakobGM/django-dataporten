@@ -34,7 +34,7 @@ authentication token for a given user. For instance,
 
 The function should accept a :code:`User` and return a :code:`str`, if the
 token exists, else :code:`None`.
-Here is a python3.6/3.7 example that will work if you use `django-allauth`_:
+Here is an example that will work if you use `django-allauth`_:
 
 .. code:: python
 
@@ -226,5 +226,11 @@ Run tests
 
 .. code:: bash
 
-    export DJANGO_SETTINGS_MODULE=dataporten.settings
+    pip install -e '.[test]'
     pytest
+
+Or, to test against all supported Python and Django versions:
+
+.. code:: bash
+
+    tox
