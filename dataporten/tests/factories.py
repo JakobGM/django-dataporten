@@ -22,6 +22,7 @@ class SocialAccountFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = SocialAccount
+        skip_postgeneration_save = True
 
 
 class SocialAppFactory(factory.django.DjangoModelFactory):
@@ -51,3 +52,4 @@ class DataportenUserFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = DataportenUser
+        skip_postgeneration_save = True
