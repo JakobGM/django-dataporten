@@ -27,6 +27,14 @@ class TestDatetimeFrom(TestCase):
             [2017, 8, 14, 22, 0, 1],
         )
 
+    def test_non_utc_offset_is_converted_to_naive_utc(self):
+        dt = datetime_from('2025-12-15T00:00:00+01:00')
+        self.assertIsNone(dt.tzinfo)
+        self.assertEqual(
+            [dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second],
+            [2025, 12, 14, 23, 0, 0],
+        )
+
 
 class TestGroupFactory:
     def test_study_program_factory(self, study_program_json):
